@@ -60,6 +60,8 @@ const select = {
       thisProduct.renderInMenu();
       thisProduct.getElements();
       thisProduct.initAccordion();
+      thisProduct.initOrderForm();
+      thisProduct.processOrder();
       console.log('new Product: ', thisProduct);
     }
     renderInMenu() {
@@ -107,9 +109,34 @@ const select = {
         /* toggle active class on thisProduct.element */
         thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive);
         console.log('activeProduct: ', activeProduct);
-    });
-    
+      });
+    }
 
+    initOrderForm() {
+      const thisProduct = this;
+
+      thisProduct.form.addEventListener('submit', function(event){
+        event.preventDefault();
+        thisProduct.processOrder();
+      });
+      
+      for(let input of thisProduct.formInputs){
+        input.addEventListener('change', function(){
+          thisProduct.processOrder();
+        });
+      }
+      
+      thisProduct.cartButton.addEventListener('click', function(event){
+        event.preventDefault();
+        thisProduct.processOrder();
+      });
+      
+    }
+
+    processOrder() {
+      // eslint-disable-next-line no-unused-vars
+      const thisProduct = this;
+      console.log('processOrder');
     }
   }
   const app = {
