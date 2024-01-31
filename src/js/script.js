@@ -152,18 +152,29 @@ const select = {
         for(let optionId in param.options) {
           // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
+          const optionImage = thisProduct.imageWrapper.querySelector(`.${paramId}-${optionId}`);
           console.log('opcje: ', optionId, option);
-            if(formData[paramId] && formData[paramId].includes(optionId)) {
+          const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
+            if(optionSelected) {
               if(!option.default) {
                 price += option.price;
-                console.log('dodanie składnika: ', option.price);
+                console.log('dodanie składnika: ', option.price);               
               }         
             } 
             else if(option.default) {
                 price -= option.price;
                 console.log('price: ', price);
             }      
+
+            if(optionImage) {
+              if(optionSelected) {
+                optionImage.classList.add(classNames.menuProduct.imageVisible);
+              } else if(!optionSelected) {
+                optionImage.classList.remove(classNames.menuProduct.imageVisible);
+              }
+            }
           }
+         
         }
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;    
