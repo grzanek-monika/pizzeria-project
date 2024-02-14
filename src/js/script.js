@@ -192,6 +192,8 @@ const select = {
     constructor(element) {
       const thisWidget = this;
       thisWidget.getElements(element);
+      thisWidget.setValue(thisWidget.input.value);
+      thisWidget.initActions();
       console.log('AmoundWidget: ', thisWidget);
       console.log('constructor arguments: ', element);
     }
@@ -203,6 +205,32 @@ const select = {
       thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
       thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
 
+    }
+
+    setValue(value) {
+      const thisWidget = this;
+      const newValue = parseInt(value);
+      /* Add validation */
+      if(thisWidget.value !== newValue 
+        && !isNaN(newValue) 
+        && newValue <= 10 
+        && newValue >= 1  ) {
+        thisWidget.value = newValue;
+      } 
+      thisWidget.input.value = thisWidget.value;
+    }
+
+    initActions() {
+      const thisWidget = this;
+      thisWidget.input.addEventListener('change', thisWidget.setValue(thisWidget.input.value));
+      thisWidget.linkDecrease.addEventListener('click', function(event) {
+        event.preventDefault();
+        thisWidget.setValue(thisWidget.value - 1);
+      });
+      thisWidget.linkIncrease.addEventListener('click', function(event) {
+        event.preventDefault();
+        thisWidget.setValue(thisWidget.value + 1);
+      })
     }
   }
   
