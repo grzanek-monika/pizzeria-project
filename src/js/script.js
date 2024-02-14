@@ -192,7 +192,7 @@ const select = {
     constructor(element) {
       const thisWidget = this;
       thisWidget.getElements(element);
-      thisWidget.setValue(thisWidget.input.value);
+      thisWidget.setValue(settings.amountWidget.defaultValue);
       thisWidget.initActions();
       console.log('AmoundWidget: ', thisWidget);
       console.log('constructor arguments: ', element);
@@ -211,18 +211,18 @@ const select = {
       const thisWidget = this;
       const newValue = parseInt(value);
       /* Add validation */
-      if(thisWidget.value !== newValue 
-        && !isNaN(newValue) 
-        && newValue <= 10 
-        && newValue >= 1  ) {
+      if(thisWidget.value !== newValue && isNaN(newValue) == false && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
         thisWidget.value = newValue;
+        console.log('nowe')
       } 
       thisWidget.input.value = thisWidget.value;
     }
 
     initActions() {
       const thisWidget = this;
-      thisWidget.input.addEventListener('change', thisWidget.setValue(thisWidget.input.value));
+      thisWidget.input.addEventListener('change', function() {
+        thisWidget.setValue(settings.amountWidget.defaultValue);
+      });
       thisWidget.linkDecrease.addEventListener('click', function(event) {
         event.preventDefault();
         thisWidget.setValue(thisWidget.value - 1);
