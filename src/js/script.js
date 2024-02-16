@@ -159,6 +159,7 @@
       thisProduct.cartButton.addEventListener('click', function(event){
         event.preventDefault();
         thisProduct.processOrder();
+        thisProduct.addToCart();
       });
       
     }
@@ -219,6 +220,13 @@
         thisProduct.processOrder();
       })
     }
+
+    addToCart() {
+      const thisProduct = this;
+      app.cart.add(thisProduct);
+    }
+
+  
   }
 
   class AmountWidget{
