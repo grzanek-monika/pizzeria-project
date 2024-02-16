@@ -207,8 +207,11 @@
          
         }
 
+      /* assign price to property priceSingle in thisProduct */
+      thisProduct.priceSingle = price;
       /*multiply price by amount */
       price *= settings.amountWidget.defaultValue;
+      console.log('singlePrice:', thisProduct.priceSingle);
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;    
     }
@@ -223,10 +226,23 @@
 
     addToCart() {
       const thisProduct = this;
-      app.cart.add(thisProduct);
+      app.cart.add(thisProduct.prepareCartProduct);
     }
 
-  
+    prepareCartProduct() {
+      const thisProduct = this;
+      const productSummary = {
+        id: thisProduct.id,
+        name: thisProduct.data.name,
+        amount: thisProduct.amountWidget.value,
+        priceSingle: thisProduct.priceSingle,
+        price: productSummary.priceSingle * productSummary.amount,
+        params: {}
+      };
+      console.log('show productSummary: ', productSummary);
+      return productSummary;
+      
+    }
   }
 
   class AmountWidget{
