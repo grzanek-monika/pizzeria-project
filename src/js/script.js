@@ -226,7 +226,7 @@
 
     addToCart() {
       const thisProduct = this;
-      app.cart.add(thisProduct.prepareCartProduct);
+      app.cart.add(thisProduct.prepareCartProduct());
     }
 
     prepareCartProduct() {
@@ -234,9 +234,9 @@
       const productSummary = {
         id: thisProduct.id,
         name: thisProduct.data.name,
-        amount: thisProduct.amountWidget.value,
+        amount: settings.amountWidget.defaultValue,
         priceSingle: thisProduct.priceSingle,
-        price: productSummary.priceSingle * productSummary.amount,
+        price: settings.amountWidget.defaultValue * thisProduct.priceSingle,
         params: {}
       };
       console.log('show productSummary: ', productSummary);
