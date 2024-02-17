@@ -237,11 +237,45 @@
         amount: settings.amountWidget.defaultValue,
         priceSingle: thisProduct.priceSingle,
         price: settings.amountWidget.defaultValue * thisProduct.priceSingle,
-        params: {}
+        params: thisProduct.prepareCartProductParams()
       };
       console.log('show productSummary: ', productSummary);
       return productSummary;
       
+    }
+
+    prepareCartProductParams() {
+      const thisProduct = this;
+      // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
+      const formData = utils.serializeFormToObject(thisProduct.form);
+      console.log('formData: ', formData);
+      const params = {};
+
+      // for every category (param)...
+      for(let paramId in thisProduct.data.params) {
+        // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
+        const param = thisProduct.data.params[paramId];
+        console.log('paramsy z koszyka: ', paramId, param);
+        console.log('formData[paramId] koszyk: ', formData[paramId]);
+        // create category param in params const eg. params = { ingredients: { name: 'Ingredients', options: {}}}
+        params[paramId] = {
+          label: param.label,
+          options: {}
+        }
+
+        // for every option in this category
+        for(let optionId in param.options) {
+          // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
+          const option = param.options[optionId];
+          
+          console.log('opcje wybranego produktu: ', optionId, option);
+          const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
+            if(optionSelected) {
+              params[paramId].options[optionId] =  option.label;
+            } 
+        }
+      }
+      return params;
     }
   }
 
