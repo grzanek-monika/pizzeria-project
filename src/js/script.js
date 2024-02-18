@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* global Handlebars, utils, dataSource */ // eslint-disable-line no-unused-vars
 
 {
@@ -367,6 +368,29 @@
       console.log('generatedDOM: ', generatedDOM);
       thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
       console.log('zapisane podsumowanie: ', thisCart.products);
+      console.log('cena', thisCart.products[0].priceSingle);
+      thisCart.update();
+    }
+
+    update() {
+      const thisCart = this;
+      const deliveryFee = settings.cart.defaultDeliveryFee;
+      let totalNumber = 0;
+      let subtotalPrice = 0;
+      
+      for(let product of thisCart.products) {
+       totalNumber += product.amount;
+       subtotalPrice += product.price;
+      }
+      if(totalNumber > 0) {
+        thisCart.totalPrice = subtotalPrice + deliveryFee;
+      } else if(totalNumber === 0) {
+        thisCart.totalPrice = subtotalPrice;
+      }
+      console.log('cena wysyłki: ', deliveryFee);
+      console.log('cena produktów: ', subtotalPrice);
+      console.log('ilość produktów: ', totalNumber);
+      console.log('cena zamówienia: ', thisCart.totalPrice);
     }
   }
 
