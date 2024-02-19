@@ -368,7 +368,6 @@
       console.log('generatedDOM: ', generatedDOM);
       thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
       console.log('zapisane podsumowanie: ', thisCart.products);
-      console.log('cena', thisCart.products[0].priceSingle);
       thisCart.update();
     }
 
