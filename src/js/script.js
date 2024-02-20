@@ -414,7 +414,13 @@
       console.log('cena zamówienia: ', thisCart.totalPrice);
     }
 
-  
+    remove(productToRemove) {
+      const thisCart = this;
+      productToRemove.dom.wrapper.remove();
+      const elementToRemove = thisCart.products.indexOf(productToRemove);
+      thisCart.products.splice(elementToRemove, 1);
+      thisCart.update()
+    }
   }
 
   class CartProduct {
