@@ -493,7 +493,7 @@
   const app = {
     initMenu: function() {
       const thisApp = this;
-      console.log('thisApp.data: ', thisApp.data);
+      console.log('thisApp.data1: ', thisApp.data);
       for(let productData in thisApp.data.products) {
         new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
       }
@@ -509,7 +509,7 @@
         .then(function(parsedResponse) {
           console.log('parsedResponse', parsedResponse);
           /* save parsedResponse as thisApp.products */
-          thisApp.products = parsedResponse;
+          thisApp.data.products = parsedResponse;
           /* execute initMenu method */
           thisApp.initMenu();
         });
