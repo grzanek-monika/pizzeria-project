@@ -361,6 +361,9 @@
       thisCart.dom.subtotalPrice = element.querySelector(select.cart.subtotalPrice);
       thisCart.dom.totalPrice = element.querySelectorAll(select.cart.totalPrice);
       thisCart.dom.totalNumber = element.querySelector(select.cart.totalNumber);
+      thisCart.dom.form = element.querySelector(select.cart.form);
+      thisCart.dom.address = element.querySelector(select.cart.address);
+      thisCart.dom.phone = element.querySelector(select.cart.phone);
       console.log('dom:', thisCart.dom);
     }
 
@@ -374,6 +377,10 @@
       });
       thisCart.dom.productList.addEventListener('remove', function(event) {
         thisCart.remove(event.detail.cartProduct);
+      });
+      thisCart.dom.form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        thisCart.sendOrder();
       })
     }
 
@@ -426,6 +433,22 @@
       const elementToRemove = thisCart.products.indexOf(productToRemove);
       thisCart.products.splice(elementToRemove, 1);
       thisCart.update()
+    }
+
+    sendOrder() {
+      const thisCart = this;
+      const payload = {
+        address: thisCart.dom.address.value,
+        
+        //phone: numer telefonu wpisany w koszyku,
+        //totalPrice: całkowita cena za zamówienie,
+        //subtotalPrice: cena całkowita - koszt dostawy,
+        //totalNumber: całkowita liczba sztuk,
+        //deliveryFee: koszt dostawy,
+        //products: tablica obecnych w koszyku produktów
+      
+      }
+      console.log('adres', payload.address);
     }
   }
 
