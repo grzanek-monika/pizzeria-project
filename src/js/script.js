@@ -437,6 +437,7 @@
 
     sendOrder() {
       const thisCart = this;
+      const url = settings.db.url + '/' + settings.db.orders;
       const payload = {
         address: thisCart.dom.address.value,
         phone: thisCart.dom.phone.value,
@@ -451,6 +452,17 @@
         payload.products.push(prod.getData());
       }      
       console.log('payload: ', payload);
+
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      };
+      
+
+      fetch(url, options);
     }
   }
 
@@ -524,6 +536,7 @@
         name: thisCartProduct.name,
         params: thisCartProduct.params,
       }
+      return orderSummary;
     }
   }
 
