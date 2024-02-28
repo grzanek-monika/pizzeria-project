@@ -1,3 +1,7 @@
+import { select, classNames, templates, settings} from "../settings.js";
+import utils from "../utils.js";
+import CartProduct from "./CartProduct.js";
+
 class Cart {
     constructor(element) {
       const thisCart = this;
@@ -121,3 +125,5 @@ class Cart {
       fetch(url, options);
     }
   }
+
+  export default Cart;
