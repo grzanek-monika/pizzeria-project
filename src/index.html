@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
   <header class="header">
     <div class="container">
       <div class="header__wrapper">
@@ -18,12 +17,10 @@
           <h1 class="logo__title"><span>Mamma</span>Mia!</h1>
           <h2 class="logo__subtitle">the best homemade Italian food</h2>
         </div>
-          <!-- Nawigation -->
         <div class="main-nav">
           <a href="#order">Order</a>
           <a href="#booking">Booking</a>
         </div>
-          <!--  Cart -->
         <div id="cart" class="cart">
           <div class="cart__summary">
             <span class="cart__total-number">0</span>
@@ -60,7 +57,6 @@
       </div>
     </div>
   </header>
-      <!--- Pages-->
   <div id="pages">
     <section id="order">
       <div id="product-list" class="product-list container"></div>
@@ -69,8 +65,6 @@
       <div class="booking-wrapper container"></div>
     </section>
   </div>
- 
-    <!---  CartProduct-->
   <script id="template-cart-product" type="text/x-handlebars-template">
     <li>
       <div class="widget-amount"> <!-- widget-amount -->
@@ -98,10 +92,8 @@
       </ul>
     </li>
   </script>
-
   <script id="template-menu-product" type="text/x-handlebars-template">
     <article class="product"> <!-- product -->
-
         <header class="product__header">
           <h3 class="product__name no-spacing">{{ name }} <i class="fas fa-chevron-down product__icon"></i></h3>
           <p class="product__base-price no-spacing">${{ price }}</p>
@@ -174,7 +166,6 @@
             {{/each}}
           </div>
         </div>
-
     </article> <!-- .product -->
   </script>
   <script id="template-booking-widget" type="text/x-handlebars-template">
@@ -242,8 +233,6 @@
       </form>
     </div>
   </script>
- 
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script type="module" src="js/app.js"></script>
 </body>
