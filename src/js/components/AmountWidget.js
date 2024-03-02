@@ -4,7 +4,7 @@ class AmountWidget{
     constructor(element) {
       const thisWidget = this;
       thisWidget.getElements(element);
-      thisWidget.setValue(settings.amountWidget.defaultValue);
+      thisWidget.setValue(thisWidget.input.value || settings.amountWidget.defaultValue);
       thisWidget.initActions();
       console.log('AmoundWidget: ', thisWidget);
       console.log('constructor arguments: ', element);
@@ -23,10 +23,10 @@ class AmountWidget{
       const thisWidget = this;
       const newValue = parseInt(value);
       /* Add validation */
-      if(settings.amountWidget.defaultValue !== newValue && !isNaN(newValue) && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
-        settings.amountWidget.defaultValue = newValue;
+      if(thisWidget.value !== newValue && !isNaN(newValue) && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
+        thisWidget.value = newValue;
       } 
-      thisWidget.input.value = settings.amountWidget.defaultValue;
+      thisWidget.input.value = thisWidget.value;
 
       thisWidget.announce();
      
@@ -47,11 +47,11 @@ class AmountWidget{
       });
       thisWidget.linkDecrease.addEventListener('click', function(event) {
         event.preventDefault();
-        thisWidget.setValue(settings.amountWidget.defaultValue - 1);
+        thisWidget.setValue(thisWidget.value - 1);
       });
       thisWidget.linkIncrease.addEventListener('click', function(event) {
         event.preventDefault();
-        thisWidget.setValue(settings.amountWidget.defaultValue + 1);
+        thisWidget.setValue(thisWidget.value + 1);
       })
     }
   }

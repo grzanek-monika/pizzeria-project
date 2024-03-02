@@ -1,4 +1,4 @@
-import { settings, select, classNames, templates } from "../settings.js";
+import { select, classNames, templates } from "../settings.js";
 import utils from "../utils.js";
 import AmountWidget from "./AmountWidget.js";
 
@@ -133,7 +133,7 @@ class Product {
       /* assign price to property priceSingle in thisProduct */
       thisProduct.priceSingle = price;
       /*multiply price by amount */
-      price *= settings.amountWidget.defaultValue;
+      price *= thisProduct.amountWidget.value;
       console.log('singlePrice:', thisProduct.priceSingle);
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;    
@@ -165,9 +165,9 @@ class Product {
       const productSummary = {
         id: thisProduct.id,
         name: thisProduct.data.name,
-        amount: settings.amountWidget.defaultValue,
+        amount: thisProduct.amountWidget.value,
         priceSingle: thisProduct.priceSingle,
-        price: settings.amountWidget.defaultValue * thisProduct.priceSingle,
+        price: thisProduct.amountWidget.value * thisProduct.priceSingle,
         params: thisProduct.prepareCartProductParams()
       };
       console.log('show productSummary: ', productSummary);
