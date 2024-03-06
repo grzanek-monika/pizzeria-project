@@ -85,9 +85,20 @@ class Booking {
     parseData(bookings, eventsCurrent, eventsRepeat){
         const thisBooking = this;
         thisBooking.booked = {};
-        for(let item of eventsCurrent){
-
+        for(let item of bookings){
             thisBooking.makeBooked(item.date, item.hour, item.duration, item.table);
+        }
+        for(let item of eventsCurrent){
+            thisBooking.makeBooked(item.date, item.hour, item.duration, item.table);
+        }
+        const minDate = thisBooking.datePicker.minDate;
+        const maxDate = thisBooking.datePicker.maxDate;
+        for(let item of eventsRepeat){
+            if(item.repeat == 'daily'){
+                for(let loopDate = minDate; loopDate <= maxDate; loopDate = utils.addDays(loopDate, 1)){
+                    thisBooking.makeBooked(utils.dateToStr(loopDate), item.hour, item.duration, item.table);
+                }
+            }
         }
         console.log('thisBooking.booked: ', thisBooking.booked);
     }
@@ -105,6 +116,28 @@ class Booking {
                 thisBooking.booked[date][hourBlock] = [];
             }
             thisBooking.booked[date][hourBlock].push(table);
+        }
+    }
+
+    updateDOM(){
+        const thisBooking = this;
+        thisBooking.date = thisBooking.datePicker.value;
+        thisBooking.hour = thisBooking.hourToNumber(thisBooking.hourPicker.value);
+
+        let allAvailable = false;
+
+        if(
+            typeof thisBooking.booked[thisBooking.date] == 'undefined' 
+            || 
+            typeof thisBooking.booked[thisBooking.date][thisBooking.hour] == 'undefined'
+        ) {
+            allAvailable = true;
+        }
+        for(let table of thisBooking.dom.tables) {
+            let tableId  = table.getAttribute(settings.booking.tableIdAttribute);
+            if(!isNaN(tableId)){
+                tableId = parseInt(tableId);
+            }
         }
     }
 
