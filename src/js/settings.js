@@ -9,18 +9,20 @@ export const select = {
       cart: '#cart',
       pages: '#pages',
       booking: '.booking-wrapper',
+      tableWrapper: '.floor-plan',
     },
     all: {
       menuProducts: '#product-list > .product',
       menuProductsActive: '#product-list > .product.active',
       formInputs: 'input, select',
+      bookingTableActive: '.floor-plan > .table.selected'
     },
     menuProduct: {
       clickable: '.product__header',
       form: '.product__order',
       priceElem: '.product__total-price .price',
       imageWrapper: '.product__images',
-      amountWidget: '.widget-amount',
+      amountWidget: '.widgetthis-amount',
       cartButton: '[href="#add-to-cart"]',
     },
     widgets: {
@@ -61,6 +63,7 @@ export const select = {
       peopleAmount: '.people-amount',
       hoursAmount: '.hours-amount',
       tables: '.floor-plan .table',
+      selectedTable: '.selected',
     },
     nav: {
         links: '.main-nav a',
@@ -78,6 +81,8 @@ export const classNames = {
     booking: {
       loading: 'loading',
       tableBooked: 'booked',
+      selected: 'selected',
+      table: 'table',
     },
     nav: {
         active: 'active',
