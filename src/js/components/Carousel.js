@@ -1,3 +1,5 @@
+/*import { select } from "../settings";
+
 class Carousel{
     constructor(element){
         const thisCarousel = this;
@@ -15,8 +17,21 @@ class Carousel{
     initPlugin(){
         const thisCarousel = this;
         console.log(thisCarousel)
+        var elem = document.querySelector(select.home.carousel);
+
+var flkty = new Flickity( elem, {
+  // options
+  cellAlign: 'left',
+  contain: true
+});
+
+// element argument can be a selector string
+//   for an individual element
+var flkty = new Flickity( '.main-carousel', {
+  // options
+});
         // use plugin to create carousel on thisCarousel.element
     }
 }
 
-export default Carousel;
+export default Carousel;*/

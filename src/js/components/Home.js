@@ -1,13 +1,23 @@
 class Home {
-    constructor(){
+    constructor(element){
         const thisHome = this;
-        thisHome.render();
-        thisHome.getElements();
+        thisHome.render(element);
+        thisHome.getElements(element);
         thisHome.initWidgets();
+        thisHome.initCarousel();
         
     }
 
+
     render(){
+
+    }
+
+    getElements(){
+
+    }
+
+    initCarousel(){
 
     }
 }

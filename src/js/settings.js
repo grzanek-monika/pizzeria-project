@@ -12,6 +12,7 @@ export const select = {
       booking: '.booking-wrapper',
       tableWrapper: '.floor-plan',
       checkbox: '.starters-checkbox',
+      home: '.home-wrapper'
     },
     all: {
       menuProducts: '#product-list > .product',
@@ -72,6 +73,9 @@ export const select = {
     },
     nav: {
         links: '.main-nav a',
+    },
+    home: {
+      carousel: 'main-carousel',
     },
   };
   
