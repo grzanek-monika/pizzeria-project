@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="./vendor/range-slider.min.css">
-  <link rel="stylesheet" href="./vendor/flickity.min.css" media='screen'>
+  <link rel="stylesheet" href="./vendor/flickity.min.css" media="screen">
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -73,40 +73,60 @@
     </section>
   </div>
   <script id="template-home-page" type="text/x-handlebars-template"></script>
-    <section class="links header">
-      <a href="#order">
-        <figure>
-          <img src="./images/assets/pizza-1.jpg" alt="pizza">
-        </figure>
-        Order online
-      </a>
-      <a href="#booking">
-        Booking a table
-        <figure>
-          <img src="./images/assets/pizza-2.jpg" alt="pizza">
-        </figure>
-      </a>
-    </section>
-    <section class="open-hours header">
-      <h3>Opening hours: </h3>
-      <p>Tue - Sun, 12PM - 12AM</p>
-    </section>
-    <section class="carousel">
-      <div class="main-carousel">
-        <div class="carousel-cell">
-          <h3>Great venue</h3>
-          <p>lorem 10</p>
+  <section class="links">
+    <div class="box-large">
+      <div class="box box-one">
+        <a href="#order" class="button-link">
+          <h2>ORDER ONLINE</h2>
+        </a>
+      </div>
+      <div class="box box-two">
+        <a href="#booking" class="button-link">
+          <h2>BOOK A TABLE</h2>
+        </a>
+      </div>
+    </div>
+    <div class="box-large">
+      <div class="box-hours">
+        <h2>OPENING HOURS: </h2>
+        <h3>Tue - Sun, 12PM - 12AM</h3>
+      </div>
+    </div>
+  </section>
+  <section class="carousel">
+    <div class="main-carousel" data-flickity="{ autoPlay: true }">
+      <div class="carousel-cell">
+        <div class="carousel-img">
+          <img src="./images/assets/pizza-3.jpg" alt="quotes">
         </div>
-        <div class="carousel-cell">
-          <h3>Best service</h3>
-          <p>lorem 10</p>
-        </div>
-        <div class="carousel-cell">
-          <h3>Delicious food</h3>
-          <p>lorem 10</p>
+        <div class="opinion">
+          <h3 class="opinion-header">Great venue</h3>
+          <p class="quote">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae, earum.</p>
+          <p class="author">Mark</p>
         </div>
       </div>
-    </section>
+      <div class="carousel-cell">
+        <div class="carousel-img">
+          <img src="./images/assets/pizza-3.jpg" alt="quotes">
+        </div>
+        <div class="opinion">
+          <h3 class="opinion-header">Best service</h3>
+          <p class="quote">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae, earum.</p>
+          <p class="author">Emily</p>
+        </div>
+      </div>
+      <div class="carousel-cell">
+        <div class="carousel-img">
+          <img src="./images/assets/pizza-3.jpg" alt="quotes">
+        </div>
+        <div class="opinion">
+          <h3 class="opinion-header">Delicious food</h3>
+          <p class="quote">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae, earum.</p>
+          <p class="author">Peter</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script id="template-cart-product" type="text/x-handlebars-template">
     <li>
