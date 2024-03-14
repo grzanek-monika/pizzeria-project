@@ -1,5 +1,5 @@
 section {
-    padding: 5% 20% 0 20%;
+    padding-top: 3%;
     margin: 0 auto;
 }
 
@@ -9,7 +9,6 @@ section {
     gap: 10px;
 
     .box-large {
-        padding: 0 10px;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -19,12 +18,12 @@ section {
 
         .box {
             border: 1px solid black;
-            padding: 3%;
+            padding: 3% 0;
             background-size: cover;
             background-position-y: 60%;
             background-position-x: right;
             border-radius: 5px;
-            width: 45%;
+            width: 48%;
 
             &.box-one {
                 background-image: url('./../../images/assets/pizza-1.jpg');
@@ -34,22 +33,22 @@ section {
                 background-image: url('./../../images/assets/pizza-2.jpg');
             }
 
-            .button-link {
-                color: white;
-                text-decoration: none;
-                text-align: center;
+        }
+        .box .button-link {
+            color: white;
+            text-decoration: none;
+            text-align: center;
 
-                h2:hover {
-                    transform: translateY(-20px);
-                    transition: 0.5s ;
-                }
+            h2:hover {
+                transform: translateY(-20px);
+                transition: 0.5s ;
             }
         }
 
         .box-hours {
             border: 1px solid palevioletred;
             border-radius: 5px;
-            width: 93%;
+            width: 100%;
             text-align: center;
             background-color: $color-main;
             padding: 2%;
@@ -63,6 +62,52 @@ section {
     }
 
 
+}
+
+.carousel{
+    padding: 10% 0;
+}
+
+.carousel-cell {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* full width */
+    height: 160px; /* height of carousel */
+
+    .carousel-img img {
+        width: 90%;
+    }
+
+    .opinion {
+        h3, p:last-of-type {
+            font-weight: bold;
+        }
+        .quote {
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+    }
+}
+
+.gallery-home {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;  
+    
+    img{
+        width: 30%;
+        height: 131px;
+        object-fit: cover;
+
+        &:hover {
+            cursor: pointer;
+            opacity: 0.4;
+        }
+    }
 }
 
 

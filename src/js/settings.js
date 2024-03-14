@@ -75,7 +75,7 @@ export const select = {
         links: '.main-nav a',
     },
     home: {
-      carousel: 'main-carousel',
+      carousel: '.main-carousel',
     },
   };
   
