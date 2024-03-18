@@ -81,6 +81,8 @@ export const select = {
       linkOrder: 'a[href="#order"]',
       linkBooking: 'a[href="#booking"]',
       linkOfBox: '.button-link',
+      favoriteSign: '.fa-heart',
+      shareSign: '.fa-share-alt',
     },
   };
   
@@ -88,6 +90,9 @@ export const classNames = {
     menuProduct: {
       wrapperActive: 'active',
       imageVisible: 'active',
+    },
+    home: {
+      favorite: 'favorite'
     },
     cart: {
       wrapperActive: 'active',
