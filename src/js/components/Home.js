@@ -1,14 +1,20 @@
+import utils from "../utils.js";
 import { select, templates } from "./../settings.js";
-//import utils from "../utils.js";
 
 class Home {
     constructor(element){
         const thisHome = this;
-        thisHome.getElements(element);
         thisHome.render(element);
-        thisHome.initWidgets();
+        thisHome.getElements(element);
         thisHome.initCarousel();
         
+    }
+
+    render(element){
+        const generatedHTML = templates.homePage();
+        const generatedDOM  = utils.createDOMFromHTML(generatedHTML);
+        element.appendChild(generatedDOM);
+        console.log('homeElement:', element);
     }
 
     getElements(element){
@@ -16,15 +22,7 @@ class Home {
         thisHome.dom = {};
         thisHome.dom.wrapper = element;
         thisHome.dom.carousel = element.querySelector(select.home.carousel);
-    }
-
-    render(element){
-        const thisHome = this;
-        const generatedHTML = templates.homePage(element);
-        //const generatedDOM = utils.generatedDOM(generatedHTML);
-        thisHome.dom.wrapper.innerHTML = generatedHTML;
-        
-
+        console.log('carousel:', thisHome.dom.carousel);
     }
 
     initCarousel(){     
@@ -39,5 +37,6 @@ class Home {
         new Flickity(thisHome.dom.carousel, options);
     }
 }
+
 
 export default Home;

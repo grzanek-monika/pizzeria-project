@@ -11,10 +11,11 @@ const app = {
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
     
     const idFromHash = window.location.hash.replace('#/', '');
-    thisApp.activatePage(idFromHash);
-
+    
     // eslint-disable-next-line no-unused-vars
     let pageMatchingHash = thisApp.pages[0].id;
+    thisApp.activatePage(pageMatchingHash);
+
 
     for(let page of thisApp.pages) {
       if(page.id == idFromHash) {
@@ -96,6 +97,20 @@ const app = {
       const thisApp = this;
       const homeWrapper = document.querySelector(select.containerOf.home);
       thisApp.home = new Home(homeWrapper);
+      
+      thisApp.home.homeLinkBox = document.querySelectorAll(select.home.linkOfBox);
+      console.log('homeLinkBox:', thisApp.home.homeLinkBox);
+      for(let linkBox of thisApp.home.homeLinkBox) {
+        console.log('linkBox:', linkBox);
+        linkBox.addEventListener('click', function(event){
+          event.preventDefault();
+          const clickedElement = this;
+          console.log('clickedElementHome', clickedElement);
+          const newId = clickedElement.getAttribute('href').replace('#', '');
+          thisApp.activatePage(newId);
+          window.location.hash = '#/' + newId;
+        })
+      } 
     }, 
     init: function(){
       const thisApp = this;

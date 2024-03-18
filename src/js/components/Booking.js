@@ -20,7 +20,6 @@ class Booking {
         const generatedHTML = templates.bookingWidget();
         thisBooking.dom = {};
         thisBooking.dom.wrapper = element;
-        console.log('generatedHTMLBook', thisBooking.dom.wrapper);
         thisBooking.dom.wrapper.innerHTML = generatedHTML;
         thisBooking.dom.peopleAmount = element.querySelector(select.booking.peopleAmount);
         thisBooking.dom.hoursAmount = element.querySelector(select.booking.hoursAmount);

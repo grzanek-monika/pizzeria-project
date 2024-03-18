@@ -12,7 +12,7 @@ export const select = {
       booking: '.booking-wrapper',
       tableWrapper: '.floor-plan',
       checkbox: '.starters-checkbox',
-      home: '.home-wrapper'
+      home: '#home-wrapper'
     },
     all: {
       menuProducts: '#product-list > .product',
@@ -25,7 +25,7 @@ export const select = {
       form: '.product__order',
       priceElem: '.product__total-price .price',
       imageWrapper: '.product__images',
-      amountWidget: '.widgetthis-amount',
+      amountWidget: '.widget-amount',
       cartButton: '[href="#add-to-cart"]',
     },
     widgets: {
@@ -76,6 +76,11 @@ export const select = {
     },
     home: {
       carousel: '.main-carousel',
+      boxOrder: '.box-one',
+      boxBooking: '.box-two',
+      linkOrder: 'a[href="#order"]',
+      linkBooking: 'a[href="#booking"]',
+      linkOfBox: '.button-link',
     },
   };
   
@@ -125,8 +130,6 @@ export const settings = {
       url: '//localhost:3131',
       products: 'products',
       orders: 'orders',
-      //product: 'product',
-      //order: 'orders',
       booking: 'bookings',
       event: 'events',
       dateStartParamKey: 'date_gte',

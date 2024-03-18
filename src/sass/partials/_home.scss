@@ -1,4 +1,4 @@
-section {
+.section {
     padding-top: 3%;
     margin: 0 auto;
 }
@@ -66,27 +66,28 @@ section {
 
 .carousel{
     padding: 10% 0;
-}
 
-.carousel-cell {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%; /* full width */
-    height: 160px; /* height of carousel */
-
-    .carousel-img img {
-        width: 90%;
-    }
-
-    .opinion {
-        h3, p:last-of-type {
-            font-weight: bold;
+    .carousel-cell {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%; /* full width */
+        height: 160px; /* height of carousel */
+    
+        .carousel-img img {
+            width: 90%;
         }
-        .quote {
-            font-style: italic;
-            font-size: 1.1rem;
+    
+        .opinion {
+            h3, p:last-of-type {
+                font-weight: bold;
+            }
+            .quote {
+                font-style: italic;
+                font-size: 1.1rem;
+                quotes: "“" "”";
+            }
         }
     }
 }
@@ -162,6 +163,22 @@ section {
 
     .gallery-image:hover .overlay i {
         display: inline;
+    }
+
+    &.favorite {
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        transform: scale(1.1);
+        opacity: 1;
+
+        .overlay {
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
+
+        i {
+            display: inline;
+            color: $color-main;
+        }
     }
     
 }
